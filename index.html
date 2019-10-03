@@ -402,10 +402,79 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function <span class="function"><span class="keyword">func</span><span class="params">()</span>&#123;</span></span><br><span class="line"></span><br><span class="line">​	console.<span class="built_in">log</span>()</span><br></pre></td></tr></table></figure>
+    <p>Windows下：</p>
+<h2 id="一、搭建"><a href="#一、搭建" class="headerlink" title="一、搭建"></a>一、搭建</h2><ol>
+<li><p><a href="nodejs.org">下载node.js</a></p>
+</li>
+<li><p>安装：安装很简单一直点next就可以了，路径可以自己选。</p>
+</li>
+<li><p>打开cmd（Ctrl+R 再输入cmd，回车）。</p>
+</li>
+<li><p>输入node -v和npm -v检查这两个组件是否安装好。（不需要进入特定的目录）</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">C:\<span class="title">Users</span>\<span class="title">liujie</span>&gt;<span class="title">node</span> -<span class="title">v</span></span></span><br><span class="line"><span class="function"><span class="title">v10</span>.16.3</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">C</span>:\<span class="title">Users</span>\<span class="title">liujie</span>&gt;<span class="title">npm</span> -<span class="title">v</span></span></span><br><span class="line"><span class="function">6.9.0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装淘宝的npm镜像源（速度快）。</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">C:\<span class="title">Users</span>\<span class="title">liujie</span>&gt;<span class="title">npm</span> <span class="title">install</span> -<span class="title">g</span> <span class="title">cnpm</span> --<span class="title">registry</span>=<span class="title">https</span>://<span class="title">registry.npm.taobao.org</span></span></span><br></pre></td></tr></table></figure>
 
-<p><a href baidu.com"">bai</a></p>
-<p><img src="/img/th.jpg" alt="th"></p>
+
+</li>
+</ol>
+<ol start="6">
+<li><p>安装hexo</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">C:</span>\Users\liujie&gt;cnpm install -g hexo-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="7">
+<li><p>创建一个blog文件夹（可以在命令行操作，也可以直接在外部操作。用于存放博客相关的所有东西，如果搭建出错了，实在没办法，可以可以删掉这个目录，重新创建再来）</p>
+</li>
+<li><p>在cmd中进入你创建的blog文件夹（文件夹的位置自定义）</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">C</span>:\Users\liujie&gt;<span class="attribute">e</span>:</span><br><span class="line"></span><br><span class="line"><span class="attribute">E</span>:\&gt;cd blog</span><br><span class="line"></span><br><span class="line"><span class="attribute">E</span>:\blog&gt;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="9">
+<li><p>初始化博客</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:\<span class="keyword">blog&gt;hexo </span>init</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="10">
+<li><p>预览你的博客（当你写完一篇博客的时候也可以预览一下再提交）</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">E:<span class="symbol">\b</span>log&gt;hexo s</span><br><span class="line">E:<span class="symbol">\b</span>log&gt;"node"  "C:<span class="symbol">\U</span>sers<span class="symbol">\l</span>iujie<span class="symbol">\A</span>ppData<span class="symbol">\R</span>oaming<span class="symbol">\n</span>pm<span class="symbol">\\</span>node_modules<span class="symbol">\h</span>exo-cli<span class="symbol">\b</span>in<span class="symbol">\h</span>exo" s</span><br><span class="line">INFO  Start processing</span><br><span class="line">INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<pre><code>复制下面的链接在浏览器中打开，出现了Hello World，你就成功了，一半。</code></pre><ol start="11">
+<li><p>创建你的第一篇博客</p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">E:</span>\b<span class="built_in">log</span>&gt;hexo <span class="built_in">n</span> <span class="string">"yourfilename"</span></span><br></pre></td></tr></table></figure>
+
+<p>创建成功之后会出现，文件的路径。你可以直接在文件夹中打开这个文件进行修改。文件的格式是Markdown的，后缀是.md。可以直接用记事本打开修改，也可以使用各种Markdown的编辑器。</p>
+</li>
+<li><p>修改之后</p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">E:</span>\b<span class="built_in">log</span>&gt;hexo <span class="built_in">clean</span></span><br></pre></td></tr></table></figure>
+
+<p>清除一下</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:\<span class="keyword">blog&gt;hexo </span>g</span><br></pre></td></tr></table></figure>
+
+<p>生成一下</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:\<span class="keyword">blog&gt;hexo </span>s</span><br></pre></td></tr></table></figure>
+
+<p>运行一下，再进浏览器看看</p>
+</li>
+</ol>
+<h2 id="二、部署"><a href="#二、部署" class="headerlink" title="二、部署"></a>二、部署</h2><p>部署到GitHub上面</p>
+<ol>
+<li><p>登录GitHub（没有账号的，自己创一个）</p>
+</li>
+<li><p>新建一个仓库，仓库名一定得是:(你的用户名).github.io</p>
+<p><img src="img%5Chexo-img%5C0.png" alt="0"></p>
+</li>
+</ol>
 
     
 
