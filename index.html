@@ -472,7 +472,24 @@
 <li><p>登录GitHub（没有账号的，自己创一个）</p>
 </li>
 <li><p>新建一个仓库，仓库名一定得是:(你的用户名).github.io</p>
-<p><img src="%5Cimg%5Chexo-img%5C0.png" alt="0"></p>
+<p><img src="/img/hexo-img/0.png" alt="0"></p>
+<p><img src="/img/hexo-img/1.png" alt="1"></p>
+</li>
+<li><p>安装git插件</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:\<span class="keyword">blog&gt;cnpm </span><span class="keyword">install </span>--save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改配置文件</p>
+<p>打开你博客目录下的_config.yml文件。</p>
+<p>在最后修改Deployment</p>
+<p>(repo：地址可以在建立仓库成功的那个页面复制)</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># Deployment</span></span><br><span class="line"><span class="meta">## Docs: https:<span class="comment">//hexo.io/docs/deployment.html</span></span></span><br><span class="line"><span class="symbol">deploy:</span></span><br><span class="line"><span class="symbol">  type:</span> git</span><br><span class="line"><span class="symbol">  repo:</span> https:<span class="comment">//github.com/你的用户名/你的用户名.github.io.git</span></span><br><span class="line"><span class="symbol">  branch:</span> master</span><br><span class="line"><span class="symbol">  message:</span> Blog</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>正式部署到远端</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">E:\<span class="keyword">blog&gt;hexo </span>d</span><br></pre></td></tr></table></figure>
+
+<p>第一次部署需要输入你GitHub的账号和密码</p>
+</li>
+<li><p>直接在浏览器输入：(你的用户名).github.io，就可以访问你的博客了。</p>
 </li>
 </ol>
 
