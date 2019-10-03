@@ -50,6 +50,9 @@
 
 
   
+    <script src="/lib/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+  
 
 </head>
 
@@ -60,7 +63,7 @@
       
 
 
-<div class="overlay" style="background: #4d4d4d;background: url('/img/biubiubiu.gif') no-repeat ;"></div>
+<div class="overlay" style="background: #4d4d4d;"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
@@ -115,11 +118,11 @@
 			
 			
 			<div>
-				<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="86" src="//music.163.com/outchain/player?type=2&id=1334445174&auto=1&height=66"></iframe>
+				<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="240" height="86" src="//music.163.com/outchain/player?type=2&id=1334445174&auto=0&height=66"></iframe>
 			</div>
 			
 				
-				<p style="font-size: 12px;">这似乎是首纯音乐，请尽情的欣赏它吧！<p>
+				<p style="font-size: 12px;">请尽情的欣赏它吧！<p>
 			
 		
 		</nav>
@@ -477,7 +480,7 @@
 		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
-		showTags: false
+		showTags: true
 	}
 </script>
 
@@ -705,7 +708,7 @@
   }
 
   
-    var modelName = "hibiki";
+    var modelName = "z16";
   
 
   var modelJsonPath = "";
@@ -738,16 +741,6 @@
 </script>
 
   
-  
-  <script type="text/javascript" src="/lib/snow.js"></script>
-  <script type="text/javascript" src="/lib/jquery-2.1.4.min.js"></script>
-  <script>
-    snow.down();
-    $(window).resize(function() {
-      $("canvas").css("z-index","500").remove();
-      snow.down();
-    });
-  </script>
   
 </body>
 
