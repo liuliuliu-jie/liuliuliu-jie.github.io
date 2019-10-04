@@ -6,21 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://liuliuliu-jie.github.io">
-  <title>Category: python | liuliuliu-jie的博客</title>
+  <title>python——线程 | liuliuliu-jie的博客</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="重庆科技学院。擅长python、前端。">
+  <meta name="description" content="概念线程就是轻量级的进程。 进程是资源分配的最小单位,线程是CPU调度的最小单位. 每一个进程中至少有一个线程。 线程与进程的区别可以归纳为以下4点：　　1）地址空间和其它资源（如打开文件）：进程间相互独立，同一进程的各线程间共享。某进程内的线程在其它进程不可见。 　　2）通信：进程间通信IPC，线程间可以直接读写进程数据段（如全局变量）来进行通信——需要进程同步和互斥手段的辅助，以保证数据的一致">
 <meta name="keywords" content="前端,萌新,js,python,javascript,程序员,程序猿,刘杰">
-<meta property="og:type" content="website">
-<meta property="og:title" content="liuliuliu-jie的博客">
-<meta property="og:url" content="http://liuliuliu-jie.github.io/categories/python/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python——线程">
+<meta property="og:url" content="http://liuliuliu-jie.github.io/2019/10/04/线程/index.html">
 <meta property="og:site_name" content="liuliuliu-jie的博客">
-<meta property="og:description" content="重庆科技学院。擅长python、前端。">
+<meta property="og:description" content="概念线程就是轻量级的进程。 进程是资源分配的最小单位,线程是CPU调度的最小单位. 每一个进程中至少有一个线程。 线程与进程的区别可以归纳为以下4点：　　1）地址空间和其它资源（如打开文件）：进程间相互独立，同一进程的各线程间共享。某进程内的线程在其它进程不可见。 　　2）通信：进程间通信IPC，线程间可以直接读写进程数据段（如全局变量）来进行通信——需要进程同步和互斥手段的辅助，以保证数据的一致">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-04T13:15:56.063Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="liuliuliu-jie的博客">
-<meta name="twitter:description" content="重庆科技学院。擅长python、前端。">
+<meta name="twitter:title" content="python——线程">
+<meta name="twitter:description" content="概念线程就是轻量级的进程。 进程是资源分配的最小单位,线程是CPU调度的最小单位. 每一个进程中至少有一个线程。 线程与进程的区别可以归纳为以下4点：　　1）地址空间和其它资源（如打开文件）：进程间相互独立，同一进程的各线程间共享。某进程内的线程在其它进程不可见。 　　2）通信：进程间通信IPC，线程间可以直接读写进程数据段（如全局变量）来进行通信——需要进程同步和互斥手段的辅助，以保证数据的一致">
   
     <link rel="alternative" href="/atom.xml" title="liuliuliu-jie的博客" type="application/atom+xml">
   
@@ -197,42 +198,165 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-线程" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+    <h1 class="article-title" itemprop="name">
+      python——线程
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/2019/10/04/线程/" class="archive-article-date">
         <time datetime="2019-10-04T04:13:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-04</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">1.5k字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">5分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>线程就是轻量级的进程。</p>
+<p>进程是资源分配的最小单位,线程是CPU调度的最小单位.</p>
+<p>每一个进程中至少有一个线程。</p>
+<h3 id="线程与进程的区别可以归纳为以下4点："><a href="#线程与进程的区别可以归纳为以下4点：" class="headerlink" title="线程与进程的区别可以归纳为以下4点："></a>线程与进程的区别可以归纳为以下4点：</h3><p>　　1）地址空间和其它资源（如打开文件）：进程间相互独立，同一进程的各线程间共享。某进程内的线程在其它进程不可见。</p>
+<p>　　2）通信：<a href="https://baike.baidu.com/item/进程间通信" target="_blank" rel="noopener">进程间通信</a><a href="https://baike.baidu.com/item/IPC" target="_blank" rel="noopener">IPC</a>，线程间可以直接读写进程数据段（如全局变量）来进行通信——需要<a href="https://baike.baidu.com/item/进程同步" target="_blank" rel="noopener">进程同步</a>和互斥手段的辅助，以保证数据的一致性。</p>
+<p>　　3）调度和切换：线程上下文切换比进程上下文切换要快得多。</p>
+<p>　　4）在多线程操作系统中，进程不是一个可执行的实体。</p>
+<a id="more"></a>
+
+<h1 id="线程的特点"><a href="#线程的特点" class="headerlink" title="线程的特点"></a>线程的特点</h1><p>在多线程的操作系统中，通常是在一个进程中包括多个线程，每个线程都是作为利用CPU的基本单位，是花费最小开销的实体。线程具有以下属性。</p>
+<p>　　1）轻型实体</p>
+<p>　　线程中的实体基本上不拥有系统资源，只是有一点必不可少的、能保证独立运行的资源。</p>
+<p>　　线程的实体包括程序、数据和TCB。线程是动态概念，它的动态特性由线程控制块TCB（Thread Control Block）描述。</p>
+<blockquote>
+<p>TCB包括以下信息</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">（1）线程状态。</span><br><span class="line">（2）当线程不运行时，被保存的现场资源。</span><br><span class="line">（3）一组执行堆栈。</span><br><span class="line">（4）存放每个线程的局部变量主存区。</span><br><span class="line">（5）访问同一个进程中的主存和其它资源。</span><br><span class="line">用于指示被执行指令序列的程序计数器、保留局部变量、少数状态参数和返回地址等的一组寄存器和堆栈。</span><br></pre></td></tr></table></figure>
+
+<p>　　2）独立调度和分派的基本单位。</p>
+<p>　　在多线程OS中，线程是能独立运行的基本单位，因而也是独立调度和分派的基本单位。由于线程很“轻”，故线程的切换非常迅速且开销小（在同一进程中的）。</p>
+<p>　　3）共享进程资源。</p>
+<p>　　线程在同一进程中的各个线程，都可以共享该进程所拥有的资源，这首先表现在：所有线程都具有相同的进程id，这意味着，线程可以访问该进程的每一个内存资源；此外，还可以访问进程所拥有的已打开文件、定时器、信号量机构等。由于同一个进程内的线程共享内存和文件，所以线程之间互相通信不必调用内核。</p>
+<p>　　4<em>）可并发执行。</em></p>
+<p>　　<em>在一个进程中的多个线程之间，可以并发执行，甚至允许在一个进程中所有线程都能并发执行；同样，不同进程中的线程也能并发执行，充分利用和发挥了处理机与外围设备并行工作的能力。</em></p>
+<h1 id="线程与python"><a href="#线程与python" class="headerlink" title="线程与python"></a>线程与python</h1><h3 id="全局解释器锁GIL"><a href="#全局解释器锁GIL" class="headerlink" title="全局解释器锁GIL"></a>全局解释器锁GIL</h3><ul>
+<li><p>运行在CPython解释器上</p>
+</li>
+<li><p>虽然 Python 解释器中可以“运行”多个线程，但在任意时刻只有一个线程在解释器中运行。</p>
+</li>
+<li><p>对Python虚拟机的访问由全局解释器锁(GIL)来控制，正是这个锁能保证同一时刻只有一个线程在运行。</p>
+<blockquote>
+<p>JPython解释器没有GIL，可以实现多线程</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="模块的选择"><a href="#模块的选择" class="headerlink" title="模块的选择"></a>模块的选择</h3><p>​        Python提供了几个用于多线程编程的模块，包括thread、threading和Queue等。thread和threading模块允许程序员创建和管理线程。thread模块提供了基本的线程和锁的支持，threading提供了更高级别、功能更强的线程管理的功能。Queue模块允许用户创建一个可以用于多个线程之间共享数据的队列数据结构。</p>
+<p>　　避免使用thread模块，因为更高级别的threading模块更为先进，对线程的支持更为完善，而且使用thread模块里的属性有可能会与threading出现冲突；其次低级别的thread模块的同步原语很少(实际上只有一个)，而threading模块则有很多；再者，thread模块中当主线程结束时，所有的线程都会被强制结束掉，没有警告也不会有正常的清除工作，至少threading模块能确保重要的子线程退出后进程才退出。 </p>
+<p>　　thread模块不支持守护线程，当主线程退出时，所有的子线程不论它们是否还在工作，都会被强行退出。而threading模块支持守护线程，守护线程一般是一个等待客户请求的服务器，如果没有客户提出请求它就在那等着，如果设定一个线程为守护线程，就表示这个线程是不重要的，在进程退出的时候，不用等待这个线程退出。</p>
+<h3 id="threading模块"><a href="#threading模块" class="headerlink" title="threading模块"></a>threading模块</h3><p>multiprocess模块的完全模仿了threading模块的接口，二者在使用层面，有很大的相似性，因而不再详细介绍（<a href="https://docs.python.org/3/library/threading.html?highlight=threading#" target="_blank" rel="noopener">官方链接</a>）</p>
+<h4 id="开进程的两个方法"><a href="#开进程的两个方法" class="headerlink" title="开进程的两个方法"></a>开进程的两个方法</h4><h5 id="一、直接用Thread开"><a href="#一、直接用Thread开" class="headerlink" title="一、直接用Thread开"></a>一、直接用Thread开</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">()</span>:</span></span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    print(<span class="string">'hello world'</span>, os.getpid())</span><br><span class="line"></span><br><span class="line">thread_ls = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    t = Thread(target=func)</span><br><span class="line">    t.start()</span><br><span class="line">    thread_ls.append(t)</span><br><span class="line">[t.join() <span class="keyword">for</span> t <span class="keyword">in</span> thread_ls]</span><br><span class="line">print(os.getpid())</span><br></pre></td></tr></table></figure>
+
+<h5 id="二、创建线程类"><a href="#二、创建线程类" class="headerlink" title="二、创建线程类"></a>二、创建线程类</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> threading <span class="keyword">import</span> Thread</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyThread</span><span class="params">(Thread)</span>:</span></span><br><span class="line">    count =<span class="number">0</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,arg1,arg2)</span>:</span></span><br><span class="line">        super().__init__()</span><br><span class="line">        self.arg1 = arg1</span><br><span class="line">        self.arg2 = arg2</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">        MyThread.count += <span class="number">1</span></span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line">        print(<span class="string">'%s, %s, %s'</span>%(self.arg1,self.arg2,self.name), os.getpid())</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    t = MyThread(i,i*<span class="string">'*'</span>)</span><br><span class="line">    t.start()</span><br><span class="line"></span><br><span class="line">print(t.count)</span><br></pre></td></tr></table></figure>
+
+<h3 id="threading的其他方法"><a href="#threading的其他方法" class="headerlink" title="threading的其他方法"></a>threading的其他方法</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(i)</span>:</span></span><br><span class="line">    time.sleep(<span class="number">0.5</span>)</span><br><span class="line">    print(i,threading.currentThread().getName(), threading.currentThread().ident)   <span class="comment"># 线程名，ident：线程id</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    t = threading.Thread(target=func, args=(i,))</span><br><span class="line">    t.start()</span><br><span class="line"></span><br><span class="line">print(len(threading.enumerate()), threading.enumerate())    <span class="comment"># 返回正在运行着的线程列表</span></span><br><span class="line">print(threading.activeCount())      <span class="comment"># 统计正在运行的线程数</span></span><br></pre></td></tr></table></figure>
+
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/alipay.jpg">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/assets/img/weixin.jpg">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/10/04/线程/">python——线程</a>
-	
-    </h1>
-  
+      </a>
+    </div>
+    
 
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          liuliuliu-jie
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://liuliuliu-jie.github.io/2019/10/04/线程/" title="python——线程" target="_blank">http://liuliuliu-jie.github.io/2019/10/04/线程/</a>
+        </li>
+        <li>
+          <strong>版权声明： </strong>
+          本博客所有文章除特别声明外，均采用 <a href="https://www.apache.org/licenses/LICENSE-2.0.html" rel="external nofollow" target="_blank">Apache License 2.0</a> 许可协议。转载请注明出处！
+        </li>
+      </ul>
+    </div>
+    
 
-        <div class="article-info info-on-right">
-          
-          
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -245,60 +369,105 @@
 	</div>
 
 
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://liuliuliu-jie.github.io/2019/10/04/线程/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/2019/10/02/python/" class="archive-article-date">
-        <time datetime="2019-10-02T04:29:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-02</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/02/前端/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">前端</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/2019/10/02/python/">python</a>
-	
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
+
+
+
+
 
 
           </div>
@@ -339,10 +508,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
