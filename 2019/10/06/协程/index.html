@@ -18,7 +18,7 @@
 <meta property="og:site_name" content="liuliuliu-jie的博客">
 <meta property="og:description" content="概念协程：是单线程下的并发，又称微线程，纤程，英文名Coroutine。一句话说明什么是协程：协程是一种用户态的轻量级线程，即协程是由用户程序自己控制调度的。 对比线程与协程的切换对比操作系统控制线程的切换，用户在单线程内控制协程的切换优点1. 协程的切换开销更小，属于程序级别的切换，操作系统完全感知不到，因而更加轻量级。  2. 单线程内就可以实现并发的效果，最大限度地利用cpu。缺点 协程的本">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-07T09:07:13.782Z">
+<meta property="og:updated_time" content="2019-10-07T09:10:52.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="协程">
 <meta name="twitter:description" content="概念协程：是单线程下的并发，又称微线程，纤程，英文名Coroutine。一句话说明什么是协程：协程是一种用户态的轻量级线程，即协程是由用户程序自己控制调度的。 对比线程与协程的切换对比操作系统控制线程的切换，用户在单线程内控制协程的切换优点1. 协程的切换开销更小，属于程序级别的切换，操作系统完全感知不到，因而更加轻量级。  2. 单线程内就可以实现并发的效果，最大限度地利用cpu。缺点 协程的本">
@@ -257,6 +257,8 @@
 <li>协程的本质是单线程下，无法利用多核，可以是一个程序开启多个进程，每个进程内开启多个线程，每个线程内开启协程</li>
 <li>协程指的是单个线程，因而一旦协程出现阻塞，将会阻塞整个线程</li>
 </ol>
+<a id="more"></a>
+
 <h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
 <li>必须在只有一个单线程里实现并发</li>
 <li>修改共享数据不需加锁</li>
