@@ -203,6 +203,115 @@
             
 
   
+    <article id="post-IO模型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/10/06/IO模型/">IO模型</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/10/06/IO模型/" class="archive-article-date">
+        <time datetime="2019-10-06T11:27:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-06</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="四种常用IO模型"><a href="#四种常用IO模型" class="headerlink" title="四种常用IO模型"></a>四种常用IO模型</h1><p><strong>阻塞IO</strong>：工作效率低（平时一般用的就是这个）</p>
+<p><strong>非阻塞IO</strong>：工作效率高，CPU的负担大（一般不用，不好掌握CPU的负担）</p>
+<p><strong>IO多路复用</strong>：在有多个对象需要IO阻塞的时候，能够有效的减少阻塞带来的时间损耗，且能够在一定程度上减少CPU的负担（想一定程序的实现异步就使用这个）</p>
+<p><strong>异步IO</strong>：工作效率最高，CPU负担也少。但是python代码无法实现。也有现成的库可以实现异步IO不过是有条件的限制</p>
+<h3 id="非阻塞IO例子"><a href="#非阻塞IO例子" class="headerlink" title="非阻塞IO例子"></a>非阻塞IO例子</h3><h5 id="server"><a href="#server" class="headerlink" title="server"></a>server</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line">sk = socket.socket()</span><br><span class="line">sk.bind((<span class="string">'127.0.0.1'</span>, <span class="number">8080</span>))</span><br><span class="line">sk.listen()</span><br><span class="line">sk.setblocking(<span class="literal">False</span>)</span><br><span class="line">conn_ls = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:    <span class="comment"># 实时监听</span></span><br><span class="line">    del_lst = []</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        conn,addr = sk.accept()</span><br><span class="line">        conn_ls.append(conn)</span><br><span class="line">    <span class="keyword">except</span> BlockingIOError:</span><br><span class="line">        <span class="keyword">for</span> conn <span class="keyword">in</span> conn_ls:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                msg = conn.recv(<span class="number">10</span>).decode(<span class="string">'utf-8'</span>)</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> msg:</span><br><span class="line">                    conn.close()</span><br><span class="line">                    del_lst.append(conn)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    print(msg)</span><br><span class="line">                    conn.send(msg.upper().encode(<span class="string">'utf-8'</span>))</span><br><span class="line">            <span class="keyword">except</span> BlockingIOError:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line">        <span class="keyword">if</span> del_lst:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> del_lst:</span><br><span class="line">                conn_ls.remove(i)</span><br></pre></td></tr></table></figure>
+
+<p>client</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">()</span>:</span></span><br><span class="line">    sk = socket.socket()</span><br><span class="line">    sk.connect((<span class="string">'127.0.0.1'</span>, <span class="number">8080</span>))</span><br><span class="line">    time.sleep(<span class="number">1</span>)</span><br><span class="line">    sk.send(<span class="string">b'hi'</span>)</span><br><span class="line">    print(sk.recv(<span class="number">10</span>).decode(<span class="string">'utf-8'</span>))</span><br><span class="line">    sk.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    threading.Thread(target=func).start()</span><br></pre></td></tr></table></figure>
+
+<h3 id="IO多路复用例子"><a href="#IO多路复用例子" class="headerlink" title="IO多路复用例子"></a>IO多路复用例子</h3><h5 id="server-1"><a href="#server-1" class="headerlink" title="server"></a>server</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> select</span><br><span class="line"></span><br><span class="line">sk = socket.socket()</span><br><span class="line">sk.bind((<span class="string">'127.0.0.1'</span>, <span class="number">8080</span>))</span><br><span class="line">sk.listen()</span><br><span class="line"></span><br><span class="line">ls = [sk]</span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    rl, wl, xl = select.select(ls, [], [])</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> rl:</span><br><span class="line">        <span class="keyword">if</span> item == sk:</span><br><span class="line">            conn, addr = item.accept()</span><br><span class="line">            ls.append(conn)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            ret = item.recv(<span class="number">1024</span>).decode(<span class="string">'utf-8'</span>)</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> ret:</span><br><span class="line">                item.close()</span><br><span class="line">                ls.remove(item)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                print(ret)</span><br><span class="line">                item.send(<span class="string">b'recived'</span>)</span><br></pre></td></tr></table></figure>
+
+<h5 id="client"><a href="#client" class="headerlink" title="client"></a>client</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">client_async</span><span class="params">(args)</span>:</span></span><br><span class="line">    sk = socket.socket()</span><br><span class="line">    sk.connect((<span class="string">'127.0.0.1'</span>, <span class="number">8080</span>))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">        time.sleep(<span class="number">2</span>)</span><br><span class="line">        sk.send((<span class="string">'%d hello'</span> % args).encode(<span class="string">'utf-8'</span>))</span><br><span class="line">        print(sk.recv(<span class="number">1024</span>))</span><br><span class="line">    sk.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>):</span><br><span class="line">    threading.Thread(target=client_async, args=(i,)).start()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>IO多路复用使用的是select</li>
+<li>select和poll都是轮询机制，操作系统会挨个的询问监测的数据，所以不适合大并发</li>
+<li>select有数据的限制，poll可以处理的数据相对多一点</li>
+</ul>
+<p><strong>epoll</strong></p>
+<ul>
+<li>能处理多对象，适合大并发</li>
+<li>不使用轮询 而是使用的回调函数</li>
+<li>windows没有这个机制，而Linux有</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/10/06/IO模型/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
