@@ -10,18 +10,18 @@
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta name="description" content="单例类 目的:让类创建的对象，在系统中只有唯一的一个实例   每一次执行12345678910111213141516171819202122```pythonclass Only_one(object):    instance = None             # 记录这个类是否已经被创建 记录是否调用过super().__new__(cls)    init_flag = False">
+  <meta name="description" content="单例类 目的:让类创建的对象，在系统中只有唯一的一个实例   每一次执行“类名()”返回的对象，内存地址是相同的(对“唯一的一个实例”的解释  1234567891011121314151617181920class Only_one(object):    instance = None             # 记录这个类是否已经被创建 记录是否调用过super().__new__(cls)">
 <meta name="keywords" content="前端,萌新,js,python,javascript,程序员,程序猿,刘杰">
 <meta property="og:type" content="article">
 <meta property="og:title" content="单例类">
 <meta property="og:url" content="http://liuliuliu-jie.github.io/2019/10/08/单例类/index.html">
 <meta property="og:site_name" content="liuliuliu-jie的博客">
-<meta property="og:description" content="单例类 目的:让类创建的对象，在系统中只有唯一的一个实例   每一次执行12345678910111213141516171819202122```pythonclass Only_one(object):    instance = None             # 记录这个类是否已经被创建 记录是否调用过super().__new__(cls)    init_flag = False">
+<meta property="og:description" content="单例类 目的:让类创建的对象，在系统中只有唯一的一个实例   每一次执行“类名()”返回的对象，内存地址是相同的(对“唯一的一个实例”的解释  1234567891011121314151617181920class Only_one(object):    instance = None             # 记录这个类是否已经被创建 记录是否调用过super().__new__(cls)">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-08T07:12:21.869Z">
+<meta property="og:updated_time" content="2019-10-09T11:48:44.574Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单例类">
-<meta name="twitter:description" content="单例类 目的:让类创建的对象，在系统中只有唯一的一个实例   每一次执行12345678910111213141516171819202122```pythonclass Only_one(object):    instance = None             # 记录这个类是否已经被创建 记录是否调用过super().__new__(cls)    init_flag = False">
+<meta name="twitter:description" content="单例类 目的:让类创建的对象，在系统中只有唯一的一个实例   每一次执行“类名()”返回的对象，内存地址是相同的(对“唯一的一个实例”的解释  1234567891011121314151617181920class Only_one(object):    instance = None             # 记录这个类是否已经被创建 记录是否调用过super().__new__(cls)">
   
     <link rel="alternative" href="/atom.xml" title="liuliuliu-jie的博客" type="application/atom+xml">
   
@@ -122,7 +122,7 @@
 			</div>
 			
 				
-				<p style="font-size: 12px;">请尽情的欣赏它吧！<p>
+				<p style="font-size: 12px;">眼泪只有在成功和高兴才可以流的<p>
 			
 		
 		</nav>
@@ -231,7 +231,7 @@
       <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
       <i class="icon-statistics"></i>
       <span class="post-meta-item-text"> 字数统计:</span>
-      <span class="post-count">234字</span>
+      <span class="post-count">259字</span>
     </span>
   </span>
 
@@ -255,8 +255,10 @@
 <li><h5 id="目的-让类创建的对象，在系统中只有唯一的一个实例"><a href="#目的-让类创建的对象，在系统中只有唯一的一个实例" class="headerlink" title="目的:让类创建的对象，在系统中只有唯一的一个实例"></a>目的:让类创建的对象，在系统中只有唯一的一个实例</h5></li>
 </ul>
 <ul>
-<li><h5 id="每一次执行"><a href="#每一次执行" class="headerlink" title="每一次执行"></a>每一次执行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```python</span><br><span class="line">class Only_one(object):</span><br><span class="line"></span><br><span class="line">    instance = None             # 记录这个类是否已经被创建 记录是否调用过super().__new__(cls)</span><br><span class="line">    init_flag = False           # 记录是否初始化过 记录__init__方法是否被执行过</span><br><span class="line"></span><br><span class="line">    def __new__(cls, *args, **kwargs):</span><br><span class="line">        if not cls.instance:    # 判断这个类是否已经被创建</span><br><span class="line">            cls.instance = super().__new__(cls) # 如果没有创建过，就创建一个类，赋值给instance</span><br><span class="line">        return cls.instance     # 返回新创建的类空间或者之前所创建的</span><br><span class="line"></span><br><span class="line">    def __init__(self):</span><br><span class="line">        if not Only_one.init_flag:  # 判断是否初始化过</span><br><span class="line">            print(123)</span><br><span class="line">            Only_one.init_flag = True   # 记录已初始化</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">o1 = Only_one()</span><br><span class="line">o2 = Only_one() # 实例化两个对象</span><br><span class="line">print(o1)</span><br><span class="line">print(o2)       # 两个对象打印的空间地址一致，这两个对象是同一个对象，实现了单例类</span><br></pre></td></tr></table></figure></h5></li>
+<li><h5 id="每一次执行“类名-”返回的对象，内存地址是相同的-对“唯一的一个实例”的解释"><a href="#每一次执行“类名-”返回的对象，内存地址是相同的-对“唯一的一个实例”的解释" class="headerlink" title="每一次执行“类名()”返回的对象，内存地址是相同的(对“唯一的一个实例”的解释"></a>每一次执行“类名()”返回的对象，内存地址是相同的(对“唯一的一个实例”的解释</h5></li>
 </ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Only_one</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    instance = <span class="literal">None</span>             <span class="comment"># 记录这个类是否已经被创建 记录是否调用过super().__new__(cls)</span></span><br><span class="line">    init_flag = <span class="literal">False</span>           <span class="comment"># 记录是否初始化过 记录__init__方法是否被执行过</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, *args, **kwargs)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> cls.instance:    <span class="comment"># 判断这个类是否已经被创建</span></span><br><span class="line">            cls.instance = super().__new__(cls) <span class="comment"># 如果没有创建过，就创建一个类，赋值给instance</span></span><br><span class="line">        <span class="keyword">return</span> cls.instance     <span class="comment"># 返回新创建的类空间或者之前所创建的</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> Only_one.init_flag:  <span class="comment"># 判断是否初始化过</span></span><br><span class="line">            print(<span class="number">123</span>)</span><br><span class="line">            Only_one.init_flag = <span class="literal">True</span>   <span class="comment"># 记录已初始化</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">o1 = Only_one()</span><br><span class="line">o2 = Only_one() <span class="comment"># 实例化两个对象</span></span><br><span class="line">print(o1)</span><br><span class="line">print(o2)       <span class="comment"># 两个对象打印的空间地址一致，这两个对象是同一个对象，实现了单例类</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="应用场景："><a href="#应用场景：" class="headerlink" title="应用场景："></a>应用场景：</h3><ul>
 <li>音乐播放</li>
 <li>打印机</li>
