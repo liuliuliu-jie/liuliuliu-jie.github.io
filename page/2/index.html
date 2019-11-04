@@ -203,6 +203,106 @@
             
 
   
+    <article id="post-单例类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/10/08/单例类/">单例类</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/10/08/单例类/" class="archive-article-date">
+        <time datetime="2019-10-08T00:28:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-08</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h2 id="单例类"><a href="#单例类" class="headerlink" title="单例类"></a>单例类</h2><ul>
+<li><h5 id="目的-让类创建的对象，在系统中只有唯一的一个实例"><a href="#目的-让类创建的对象，在系统中只有唯一的一个实例" class="headerlink" title="目的:让类创建的对象，在系统中只有唯一的一个实例"></a>目的:让类创建的对象，在系统中只有唯一的一个实例</h5></li>
+</ul>
+<ul>
+<li><h5 id="每一次执行“类名-”返回的对象，内存地址是相同的-对“唯一的一个实例”的解释"><a href="#每一次执行“类名-”返回的对象，内存地址是相同的-对“唯一的一个实例”的解释" class="headerlink" title="每一次执行“类名()”返回的对象，内存地址是相同的(对“唯一的一个实例”的解释"></a>每一次执行“类名()”返回的对象，内存地址是相同的(对“唯一的一个实例”的解释</h5></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Only_one</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    instance = <span class="literal">None</span>             <span class="comment"># 记录这个类是否已经被创建 记录是否调用过super().__new__(cls)</span></span><br><span class="line">    init_flag = <span class="literal">False</span>           <span class="comment"># 记录是否初始化过 记录__init__方法是否被执行过</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__new__</span><span class="params">(cls, *args, **kwargs)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> cls.instance:    <span class="comment"># 判断这个类是否已经被创建</span></span><br><span class="line">            cls.instance = super().__new__(cls) <span class="comment"># 如果没有创建过，就创建一个类，赋值给instance</span></span><br><span class="line">        <span class="keyword">return</span> cls.instance     <span class="comment"># 返回新创建的类空间或者之前所创建的</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> Only_one.init_flag:  <span class="comment"># 判断是否初始化过</span></span><br><span class="line">            print(<span class="number">123</span>)</span><br><span class="line">            Only_one.init_flag = <span class="literal">True</span>   <span class="comment"># 记录已初始化</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">o1 = Only_one()</span><br><span class="line">o2 = Only_one() <span class="comment"># 实例化两个对象</span></span><br><span class="line">print(o1)</span><br><span class="line">print(o2)       <span class="comment"># 两个对象打印的空间地址一致，这两个对象是同一个对象，实现了单例类</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="应用场景："><a href="#应用场景：" class="headerlink" title="应用场景："></a>应用场景：</h3><ul>
+<li>音乐播放</li>
+<li>打印机</li>
+<li>回收站</li>
+<li>数据库访问</li>
+<li>等等</li>
+</ul>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/10/08/单例类/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-IO模型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
