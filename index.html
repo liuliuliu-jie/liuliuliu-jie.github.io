@@ -203,6 +203,121 @@
             
 
   
+    <article id="post-简单的邮件系统" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/2019/11/09/简单的邮件系统/">简单的邮件系统</a>
+	
+    </h1>
+  
+
+
+  
+  
+<a href="/2019/11/09/简单的邮件系统/" class="archive-article-date">
+        <time datetime="2019-11-09T02:35:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-09</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h1 id="1-邮件系统需要考虑哪一些极限情况？"><a href="#1-邮件系统需要考虑哪一些极限情况？" class="headerlink" title="1. 邮件系统需要考虑哪一些极限情况？"></a>1. 邮件系统需要考虑哪一些极限情况？</h1><ol>
+<li>邮件数量的限制</li>
+<li>邮件的内容字数限制</li>
+<li>邮件的标题字数限制</li>
+<li>单个邮件的附件物品上限</li>
+</ol>
+<h1 id="2-设计邮件系统时，有哪些功能需要考虑进行扩展？"><a href="#2-设计邮件系统时，有哪些功能需要考虑进行扩展？" class="headerlink" title="2. 设计邮件系统时，有哪些功能需要考虑进行扩展？"></a>2. 设计邮件系统时，有哪些功能需要考虑进行扩展？</h1><ol>
+<li>一键删除邮件（不会删除带附件和未读的邮件）</li>
+<li>邮件收藏（即邮件不会被一键删除）</li>
+<li>邀请加入公会的提示</li>
+<li>邮件支持html语言格式</li>
+<li>通过邮件跳转到其他活动或者系统，等等</li>
+</ol>
+<h1 id="3-邮件的排序规则？"><a href="#3-邮件的排序规则？" class="headerlink" title="3. 邮件的排序规则？"></a>3. 邮件的排序规则？</h1><ol>
+<li>优先显示未读的邮件</li>
+<li>同为未读（或已读）邮件，优先显示带附件的邮件</li>
+<li>最后再按收到邮件的时间，从近到远进行排序</li>
+</ol>
+<h1 id="4-邮件满时的处理规则？"><a href="#4-邮件满时的处理规则？" class="headerlink" title="4. 邮件满时的处理规则？"></a>4. 邮件满时的处理规则？</h1><ol>
+<li><p>在邮箱快满的时候就提醒玩家需要清理邮件</p>
+</li>
+<li><p>邮件满后，收到新邮件时，优先删掉时间最早的无附件的已读邮件</p>
+</li>
+<li><p>若还是满了，则再删掉时间早的无附件的未读邮件</p>
+</li>
+<li><p>若还是满了。则拒收新邮件（或继续删除时间早的有附件邮件）</p>
+<p>PS：规则可以进一步省略或者精简</p>
+<p>实际多数游戏程序设计中，是在玩家登录游戏时才进行邮件发放的</p>
+</li>
+</ol>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/游戏//" class="article-tag-list-link color3">游戏</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/2019/11/09/简单的邮件系统/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-新人策划必须知道的十个名词" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1111,97 +1226,9 @@
 
 
   
-    <article id="post-反射" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/2019/10/09/反射/">反射</a>
-	
-    </h1>
-  
-
-
-  
-  
-<a href="/2019/10/09/反射/" class="archive-article-date">
-        <time datetime="2019-10-09T03:55:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-09</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <h3 id="反射："><a href="#反射：" class="headerlink" title="反射："></a>反射：</h3><p>反射就是通过字符串的形式，导入模块；通过字符串的形式，去模块寻找指定函数，并执行。利用字符串的形式去对象（模块）中操作（查找/获取/删除/添加）成员，一种基于字符串的事件驱动！</p>
-<h4 id="相关的四个内置函数及用法"><a href="#相关的四个内置函数及用法" class="headerlink" title="相关的四个内置函数及用法:"></a>相关的四个内置函数及用法:</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.name = <span class="string">'liujie'</span></span><br><span class="line">        self.age = <span class="string">'21'</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">method</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"method print"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = A()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 1.getattr(object, string, notfind)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 第三个参数可加，可不加。加上之后getattr也可以直接判断该对象 是否有该属性</span></span><br><span class="line"><span class="comment"># 如果这个参数没有加，该对象没有该属性的时候 会报错</span></span><br><span class="line">print(getattr(a, <span class="string">'name'</span>, <span class="literal">False</span>))</span><br><span class="line"><span class="comment"># 如果Instance 对象中有属性name则打印self.name的值，否则打印'not find</span></span><br><span class="line">print(getattr(a, <span class="string">'age'</span>))</span><br><span class="line"><span class="comment"># 如果Instance 对象中有属性age则打印self.age的值，否则打印'not find'</span></span><br><span class="line">print(getattr(a, <span class="string">'method'</span>, <span class="string">'default'</span>))</span><br><span class="line"><span class="comment"># 如果有方法method，否则打印其地址，否则打印default</span></span><br><span class="line">print(getattr(a, <span class="string">'method'</span>, <span class="string">'default'</span>)())</span><br><span class="line"><span class="comment"># 如果没有方法method，运行函数并打印None否则会报错</span></span><br><span class="line"><span class="comment"># 所以如果是通过这个方法来获取一个函数，最好在之前用hasattr或者getattr判断对象中是否有该函数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.hasattr(object, string)</span></span><br><span class="line"></span><br><span class="line">print(hasattr(a, <span class="string">'name'</span>))</span><br><span class="line"><span class="comment"># 说明：判断对象object是否包含名为name的特性</span></span><br><span class="line"><span class="comment"># # hasattr是通过调用getattr(ojbect, name)是否抛出异常来实现的</span></span><br><span class="line"><span class="comment"># 会返回True或者False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3.setattr(objcet, string, value)</span></span><br><span class="line"></span><br><span class="line">print(setattr(a, <span class="string">'age'</span>, <span class="number">18</span>))</span><br><span class="line"><span class="comment"># 这是相对应的getattr()。参数是一个对象, 一个字符串和一个任意值。</span></span><br><span class="line"><span class="comment"># 字符串可能会列出一个现有的属性或一个新的属性。</span></span><br><span class="line"><span class="comment"># 这个函数将值赋给属性的。该对象允许它提供。</span></span><br><span class="line"><span class="comment"># 例如, setattr(x,“foobar”, 123)相当于x.foobar = 123。</span></span><br><span class="line"><span class="comment"># 返回None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4.delattr(object, string)</span></span><br><span class="line">print(delattr(a, <span class="string">'name'</span>))</span><br><span class="line"><span class="comment"># 与setattr()相关的一组函数。参数是由一个对象(记住python中一切皆是对象)和一个字符串组成的。\</span></span><br><span class="line"><span class="comment"># string参数必须是对象属性名之一。该函数删除该obj的一个由string指定的属性。</span></span><br><span class="line"><span class="comment"># delattr(x, 'foobar') = del x.foobar</span></span><br><span class="line"><span class="comment"># 返回 None</span></span><br></pre></td></tr></table></figure>
-
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/python//" class="article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/2019/10/09/反射/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 
